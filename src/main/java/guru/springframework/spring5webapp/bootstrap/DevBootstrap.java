@@ -54,5 +54,16 @@ public class DevBootstrap implements ApplicationListener<ContextRefreshedEvent>{
         authorRepository.save(rod);
         publisherRepository.save(worx);
         bookRepository.save(noEJB);
+
+        //Diego
+        Author diego = new Author("Diego", "Junco");
+        Publisher publisher = new Publisher("Publisher 2", "Address 3");
+        Book agilism_in_life = new Book("Agilism in life", "472431", publisher);
+        diego.getBooks().add(agilism_in_life);
+        agilism_in_life.getAuthors().add(diego);
+
+        authorRepository.save(diego);
+        publisherRepository.save(publisher);
+        bookRepository.save(agilism_in_life);
     }
 }
